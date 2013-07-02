@@ -1,0 +1,7 @@
+# For the deails of the following parameters,
+# see https://dev.twitter.com/docs/auth/authorizing-request
+---
+:consumer_key: 'your own consumer key'
+:consumer_secret: 'your own consumer secret'
+:oauth_token: 'your own oauth token'
+:oauth_token_secret: 'your own oauth token secret'
