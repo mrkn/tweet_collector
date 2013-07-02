@@ -1,0 +1,20 @@
+#! /usr/bin/env ruby
+
+require 'psych'
+
+require 'bundler/setup'
+require 'tweetstream'
+require 'term/ansicolor'
+
+TweetStream.configure do |config|
+  yaml = Psych.load_file('.tweetstream.yml')
+  config.consumer_key       = yaml[:consumer_key]
+  config.consumer_secret    = yaml[:consumer_secret]
+  config.oauth_token        = yaml[:oauth_token]
+  config.oauth_token_secret = yaml[:oauth_token_secret]
+  config.auth_method        = :oauth
+end
+
+client = TweetStream::Client.new.userstream do |status|
+  puts "#{Term::ANSIColor.green(status.user.screen_name)}: #{status.text}"
+end
