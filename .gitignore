@@ -1,3 +1,4 @@
+.tweetstream.yml
 *.gem
 *.rbc
 .bundle
